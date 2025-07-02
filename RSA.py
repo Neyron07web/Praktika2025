@@ -42,5 +42,15 @@ def generate_keys(p, q):
 
     return (e, n), (d, n), phi
 
+def encrypt(M, e, n):
+    print(f"\n Шаг 4: Шифруем сообщение M = {M}")
+    C = pow(M, e, n)
+    print(f"C = M^e mod n = {M}^{e} mod {n} = {C}")
+    return C
 
+def decrypt(C, d, n):
+    print(f"\n Шаг 5: Расшифровываем сообщение C = {C}")
+    M = pow(C, d, n)
+    print(f"M = C^d mod n = {C}^{d} mod {n} = {M}")
+    return M
 
