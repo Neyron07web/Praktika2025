@@ -54,3 +54,33 @@ def decrypt(C, d, n):
     print(f"M = C^d mod n = {C}^{d} mod {n} = {M}")
     return M
 
+def main():
+    print("=== RSA: Автоподбор e и промежуточные шаги ===")
+
+    try:
+        p = int(input("Введите простое число p: "))
+        q = int(input("Введите простое число q: "))
+        M = int(input("Введите сообщение (целое число) M для шифрования: "))
+
+        public_key, private_key, phi = generate_keys(p, q)
+
+        e, n = public_key
+        d, _ = private_key
+
+        C = encrypt(M, e, n)
+        M_decrypted = decrypt(C, d, n)
+
+        print("\n=== ИТОГ ===")
+        print(f"Открытый ключ: (e={e}, n={n})")
+        print(f"Закрытый ключ: (d={d}, n={n})")
+        print(f"Зашифрованное сообщение: C = {C}")
+        print(f"Расшифрованное сообщение: M = {M_decrypted}")
+
+    except ValueError as ve:
+        print("\n Ошибка ввода:", ve)
+    except Exception as ex:
+        print("\n Ошибка:", ex)
+
+if __name__ == "__main__":
+    main()
+
