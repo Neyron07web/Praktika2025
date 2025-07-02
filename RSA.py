@@ -25,3 +25,22 @@ def find_coprime(phi):
             return e
     raise Exception("Не удалось найти подходящее значение e.")
 
+def generate_keys(p, q):
+    print("\n Шаг 1: Вычисляем n и φ(n)")
+    n = p * q
+    phi = (p - 1) * (q - 1)
+    print(f"n = {p} * {q} = {n}")
+    print(f"φ(n) = ({p - 1}) * ({q - 1}) = {phi}")
+
+    print("\n🔍 Шаг 2: Ищем e, взаимно простое с φ(n)")
+    e = find_coprime(phi)
+    print(f" Подобрано e = {e}")
+
+    print("\n Шаг 3: Вычисляем d, такое что (e * d) % φ(n) = 1")
+    d = mod_inverse(e, phi)
+    print(f"d = {d}, так как {e} * {d} ≡ 1 (mod {phi})")
+
+    return (e, n), (d, n), phi
+
+
+
