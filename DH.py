@@ -34,3 +34,10 @@ def reset():
 # Создаем интерфейс
 dpg.create_context()
 
+# Кириллица
+with dpg.font_registry():
+    with dpg.font("C:/Users/Owner/Downloads/ofont.ru_Spell.ttf", 16) as font1:
+        dpg.add_font_range_hint(dpg.mvFontRangeHint_Cyrillic)
+dpg.bind_font(font1)
+
+
