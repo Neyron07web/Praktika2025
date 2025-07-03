@@ -40,7 +40,7 @@ with dpg.font_registry():
         dpg.add_font_range_hint(dpg.mvFontRangeHint_Cyrillic)
 dpg.bind_font(font1)
 
-with dpg.window(label="Diffie-Hellman"):
+with dpg.window(label="Diffie-Hellman", width=300, height=250):
     dpg.add_text("Обмен ключами Диффи-Хеллмана")
     dpg.add_text(f"p = {p}, g = {g}")
     dpg.add_button(label="Генерировать ключи", callback=generate_keys)
