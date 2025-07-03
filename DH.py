@@ -40,4 +40,31 @@ with dpg.font_registry():
         dpg.add_font_range_hint(dpg.mvFontRangeHint_Cyrillic)
 dpg.bind_font(font1)
 
+with dpg.window(label="Diffie-Hellman"):
+    dpg.add_text("Обмен ключами Диффи-Хеллмана")
+    dpg.add_text(f"p = {p}, g = {g}")
+    dpg.add_button(label="Генерировать ключи", callback=generate_keys)
+    dpg.add_button(label="Вычислить секрет", callback=calculate_secret)
+    dpg.add_button(label="Сбросить", callback=reset)
+    dpg.add_text("", tag="a")
+    dpg.add_text("", tag="b")
+    dpg.add_text("", tag="A")
+    dpg.add_text("", tag="B")
+    dpg.add_text("", tag="Ka")
+    dpg.add_text("", tag="Kb")
+    dpg.add_text("", tag="result", color=(0, 255, 0))
+    dpg.create_context()
+
+    dpg.create_viewport(title='Diffie-Hellman', width=450, height=350)
+    dpg.setup_dearpygui()
+    dpg.show_viewport()
+    dpg.start_dearpygui()
+    dpg.destroy_context()
+
+    dpg.create_viewport(title='Diffie-Hellman', width=400, height=300)
+    dpg.setup_dearpygui()
+    dpg.show_viewport()
+    dpg.start_dearpygui()
+
+
 
